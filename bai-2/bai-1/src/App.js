@@ -11,11 +11,11 @@ export default function App() {
               <td>country</td>
           </tr>
           {
-              students.map(student => (
+              students.map((student,index) => (
                   <tr>
-                      <td>{student.company}</td>
-                      <td>{student.contact}</td>
-                      <td>{student.country}</td>
+                      <td key={index}>{student.company}</td>
+                      <td key={index}>{student.contact}</td>
+                      <td key={index}>{student.country}</td>
                   </tr>
               ))
           }
