@@ -8,10 +8,10 @@ import Create from './component/service/Create';
 function App() {
   return (
     <>
-    {/* <Layout></Layout> */}
+    <Layout></Layout>
     {/* <List/> */}
     {/* <Edit/> */}
-    <Create/>
+    {/* <Create/> */}
     </>
     
   );
