@@ -66,7 +66,8 @@ export function MedicalDeclaration() {
                     <ErrorMessage name="birthday" className="form-error"/>
                     <br/>
                     Giới tính
-
+                    <input name="gender" type="radio" value="Nam" />Nam
+                    <input name="gender" type="radio" value="Nữ" />Nữ
                     Quốc tịch
                     <Field type="text" name="nationality"/>
                     <ErrorMessage name="nationality" className="form-error"/>
