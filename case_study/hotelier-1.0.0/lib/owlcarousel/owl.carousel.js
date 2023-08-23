@@ -262,7 +262,7 @@
 	Owl.Plugins = {};
 
 	/**
-	 * List of workers involved in the update process.
+	 * ListCustomer of workers involved in the update process.
 	 */
 	Owl.Workers = [ {
 		filter: [ 'width', 'settings' ],

@@ -1,17 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 import Layout from './component/Layout';
-import List from './component/service/List';
-import Edit from './component/service/Edit';
-import Create from './component/service/Create';
+import Edit from './component/customer/Edit';
+// import Create from './component/customer/Create';
+import ListCustomer from "./component/customer/List";
+import List from "./component/service/List";
+import Create from "./component/customer/Create";
 
 function App() {
   return (
     <>
-    <Layout></Layout>
-    {/* <List/> */}
-    {/* <Edit/> */}
-    {/* <Create/> */}
+    {/*<Layout></Layout>*/}
+    {/* <ListCustomer/> */}
+     <Edit/>
+    {/* <Create/>*/}
+    {/*  <List />*/}
+      {/*<ListCustomer />*/}
+    {/*<Create/>*/}
     </>
     
   );
