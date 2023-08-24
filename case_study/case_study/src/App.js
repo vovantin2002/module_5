@@ -4,16 +4,16 @@ import Layout from './component/Layout';
 import Edit from './component/customer/Edit';
 // import Create from './component/customer/Create';
 import ListCustomer from "./component/customer/List";
-import List from "./component/service/List";
-import Create from "./component/customer/Create";
+import List from "./component/contract/List";
+import Create from "./component/contract/Create";
 
 function App() {
   return (
     <>
     {/*<Layout></Layout>*/}
     {/* <ListCustomer/> */}
-     <Edit/>
-    {/* <Create/>*/}
+    {/* <Edit/>*/}
+     <Create/>
     {/*  <List />*/}
       {/*<ListCustomer />*/}
     {/*<Create/>*/}
