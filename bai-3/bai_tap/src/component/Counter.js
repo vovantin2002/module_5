@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-function useCounter(firstCount, step) {
+function useCounter(firstCount) {
     const [count, setCount] = useState(firstCount)
-    const increment = () => {
+    const increment = (step) => {
         setCount((count) => count + step)
     }
     return [count, increment]
