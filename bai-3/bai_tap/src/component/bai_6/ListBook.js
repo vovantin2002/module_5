@@ -4,6 +4,7 @@ import {addTodo, getAll} from "../../service/TodoListService";
 import {Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 export function ListBook(){
     const [books,setBooks] = useState([])
@@ -14,6 +15,11 @@ export function ListBook(){
     const getAll=async ()=>{
         const result=await  bookService.getAll();
         setBooks((prev)=>result)
+    }
+    const deleteBook = async (id) =>{
+        await axios.delete(`http://localhost:8080/books/${id}`);
+        getAll();
+        await alert("Xoá thành công ");
     }
     return(
         <>
@@ -36,6 +42,7 @@ export function ListBook(){
                         <td>{element.title}</td>
                         <td>{element.quantity}</td>
                         <td><Link to={`/books/${element.id}`}>Sửa</Link></td>
+                        <td><button onClick={() => deleteBook(element.id)}>Xóa</button></td>
                     </tr>
                 ))
             }

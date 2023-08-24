@@ -1,37 +1,40 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import bookData from "../../data/Book.json";
+import {useNavigate, useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 export function EditBook() {
-    const { id } = useParams();
+    const {id} = useParams();
     const navigate = useNavigate();
-    const [book, setBook] = useState({});
+    const [book, setBook] = useState();
 
     useEffect(() => {
-        const editedBook = bookData.find((el) => el.id === parseInt(id));
-        setBook(editedBook);
-    }, [id]);
+        loadBook();
+    }, []);
+
+    const loadBook = async () => {
+        const response = await axios.get(`http://localhost:8080/books/${id}`);
+        const loadedBook = response.data;
+        setBook(loadedBook);
+    };
 
     const editBook = async (values) => {
-        // Update the book data with the new values
-        const updatedBook = { ...book, ...values };
-
-        // Perform the book update operation using the updatedBook data
-        // Replace this with your actual book update logic using the bookService
-        console.log(updatedBook);
-        // await bookService.editBook(id, updatedBook);
-
+        const updatedBook = {...book, ...values};
+        await axios.put(`http://localhost:8080/books/${id}`, updatedBook);
         navigate("/books");
     };
 
     return (
         <Formik
-            initialValues={book}
+            enableReinitialize={true}
+            initialValues={{
+                title: book?.title || "",
+                quantity: book?.quantity || 0,
+            }}
             validationSchema={Yup.object({
                 title: Yup.string().required("Required"),
-                quantity: Yup.number().required("Required"),
+                quantity: Yup.number().required("Required").positive("Quantity must be a positive number"),
             })}
             onSubmit={async (values) => {
                 await editBook(values);
@@ -41,11 +44,11 @@ export function EditBook() {
             <Form>
                 <div>
                     <h1>Sửa sách</h1>
-                    <br />
-                    <Field type="text" name="title" placeholder="Nhập title" />
-                    <ErrorMessage name="title" className="form-error" />
-                    <Field type="number" name="quantity" placeholder="Nhập số lượng" />
-                    <ErrorMessage name="quantity" className="form-error" />
+                    <br/>
+                    <Field type="text" name="title" placeholder="Nhập title"/>
+                    <ErrorMessage name="title" className="form-error"/>
+                    <Field type="number" name="quantity" placeholder="Nhập số lượng"/>
+                    <ErrorMessage name="quantity" className="form-error"/>
                     <button type="submit">Cập nhật</button>
                 </div>
             </Form>
