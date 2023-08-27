@@ -1,0 +1,16 @@
+{
+  "service": [
+    {
+      "name": "Room - On Clouds Nine",
+      "area": 39,
+      "cost": 999,
+      "capacity": 3,
+      "image": "https://tse1.mm.bing.net/th?id=OIP.Ud7PSPO-dToGSwalJApKSAAAAA&pid=Api&P=0&h=180",
+      "type": {
+        "id": 1,
+        "name": "“Room”"
+      },
+      "id": 10
+    }
+  ]
+}

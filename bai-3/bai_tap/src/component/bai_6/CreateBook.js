@@ -3,18 +3,19 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
 import {useNavigate} from "react-router-dom";
 import * as bookService from "../../service/BookManagementService"
+import "../../App.css"
 
 
 export function CreateBook() {
     const navigate = useNavigate();
-    // useEffect(()=>{
+    // useEffect(()=>{//
     //     console.log("useEffect");
     //     return()=>{
     //
     //     }
     // })
     const addBook = async (values) => {
-        const result = await bookService.addBook(values);
+        await bookService.addBook(values);
         navigate("/books")
     }
     return (
@@ -22,7 +23,6 @@ export function CreateBook() {
             initialValues={{
                 title: '',
                 quantity: ''
-
             }
             }
             validationSchema={

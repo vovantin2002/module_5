@@ -11,7 +11,7 @@ export function EditBook() {
 
     useEffect(() => {
         loadBook();
-    }, []);
+    },[book]);
 
     const loadBook = async () => {
         const response = await axios.get(`http://localhost:8080/books/${id}`);
@@ -29,12 +29,11 @@ export function EditBook() {
         <Formik
             enableReinitialize={true}
             initialValues={{
-                title: book?.title || "",
-                quantity: book?.quantity || 0,
+                ...book,
             }}
             validationSchema={Yup.object({
                 title: Yup.string().required("Required"),
-                quantity: Yup.number().required("Required").positive("Quantity must be a positive number"),
+                quantity: Yup.number().required("Required"),
             })}
             onSubmit={async (values) => {
                 await editBook(values);

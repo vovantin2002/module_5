@@ -1,53 +1,84 @@
-import {useEffect, useState} from "react"
+import React, {useEffect, useState} from 'react';
 import * as bookService from "../../service/BookManagementService"
-import {addTodo, getAll} from "../../service/TodoListService";
-import {Field, Form, Formik} from "formik";
-import * as Yup from 'yup';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import {Modal} from "react-bootstrap";
+import {boolean} from "yup";
 
-export function ListBook(){
-    const [books,setBooks] = useState([])
+export function ListBook() {
 
-    useEffect(()=>{
+    const [books, setBooks] = useState([])
+    const [object, setObject] = useState({})
+    const [open, setOpen] = useState(false);
+
+    useEffect(() => {
         getAll();
-    },[])
-    const getAll=async ()=>{
-        const result=await  bookService.getAll();
-        setBooks((prev)=>result)
+    }, [])
+    const getAll = async () => {
+        const result = await bookService.getAll();
+        setBooks((prev) => result)
     }
-    const deleteBook = async (id) =>{
+    let flag=false;
+    const deleteBook = async (id) => {
+        // setOpen(true)
         await axios.delete(`http://localhost:8080/books/${id}`);
         getAll();
         await alert("Xoá thành công ");
+        setOpen(false);
     }
-    return(
+    const infoDelete = async (book) => {
+        setOpen(true)
+        setObject(book);
+    }
+    return (
         <>
             <h1>Danh sach </h1>
             <Link to="/add">Them moi</Link>
-        <table>
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Quantity</th>
-                <th>Thao tác</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-                books.map((element)=>(
-                    <tr key={element.id}>
-                        <td>{element.id}</td>
-                        <td>{element.title}</td>
-                        <td>{element.quantity}</td>
-                        <td><Link to={`/books/${element.id}`}>Sửa</Link></td>
-                        <td><button onClick={() => deleteBook(element.id)}>Xóa</button></td>
-                    </tr>
-                ))
-            }
-            </tbody>
-        </table>
+            <table>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Quantity</th>
+                    <th>Thao tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                {
+                    books.map((element) => (
+                        <tr key={element.id}>
+                            <td>{element.id}</td>
+                            <td>{element.title}</td>
+                            <td>{element.quantity}</td>
+                            <td><Link to={`/books/${element.id}`}>Sửa</Link></td>
+                            <td>
+                                <button onClick={() => infoDelete(element)}>
+                                    Xóa
+                                </button>
+                            </td>
+                        </tr>
+                    ))
+                }
+                </tbody>
+            </table>
+            <Modal
+                show={open}
+                onHide={() => {
+                    setOpen(false);
+                }}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <h3>Xóa sách</h3>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Bạn có muốn xóa sách  {object.title}</p>
+                    <button onClick={() => deleteBook(object.id)}>
+                        Xóa
+                    </button>
+                </Modal.Body>
+            </Modal>
         </>
     )
 }
