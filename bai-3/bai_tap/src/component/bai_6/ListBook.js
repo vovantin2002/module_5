@@ -14,7 +14,7 @@ export function ListBook() {
     }, [])
     const getAll = async () => {
         const result = await bookService.getAll();
-        setBooks((prev) => result)
+        setBooks(result);
     }
     let flag = false;
     const deleteBook = async (id) => {
