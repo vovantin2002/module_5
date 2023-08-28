@@ -97,7 +97,6 @@ class Layout extends Component {
                     <div className="container-fluid p-0 mb-5"></div>
                     <br/>
                     <br/>
-                    <List/>
                      {/*    viết nội dung ở đây*/}
                     <br/>
                     <br/>

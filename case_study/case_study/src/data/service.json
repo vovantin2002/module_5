@@ -12,5 +12,16 @@
       },
       "id": 10
     }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "Vo Van Tin",
+      "gender": "nam",
+      "email": "vovantin@gmail.com",
+      "birthday": "09/05/2002",
+      "phoneNumber": "0778298952",
+      "citizenId": "3467878655433"
+    }
   ]
 }
