@@ -1,4 +1,3 @@
-import {addBook, getAll} from "../../service/BookManagementService";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
 import {useNavigate} from "react-router-dom";
@@ -8,12 +7,7 @@ import "../../App.css"
 
 export function CreateBook() {
     const navigate = useNavigate();
-    // useEffect(()=>{//
-    //     console.log("useEffect");
-    //     return()=>{
-    //
-    //     }
-    // })
+
     const addBook = async (values) => {
         await bookService.addBook(values);
         navigate("/books")

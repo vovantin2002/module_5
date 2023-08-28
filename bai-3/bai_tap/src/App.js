@@ -1,5 +1,5 @@
 import './App.css';
-import { Contact } from './component/Contact';
+import {Contact} from './component/Contact';
 import Counter from './component/Counter';
 import Todo from './component/Todo';
 import {MedicalDeclaration} from "./component/MedicalDeclaration";
@@ -10,22 +10,21 @@ import {CreateBook} from "./component/bai_6/CreateBook";
 import {EditBook} from "./component/bai_6/EditBook";
 
 function App() {
-  return (
-    <>
-        <BrowserRouter>
-        <Routes>
-            <Route path="/books" element={ <ListBook />}></Route>
-            <Route path="/books/:id" element={ <EditBook />}></Route>
-            <Route path="/add" element={ <CreateBook />}></Route>
-        </Routes>
-        </BrowserRouter>
+    return (
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/books" element={<ListBook/>}></Route>
+                    <Route path="/books/:id" element={<EditBook/>}></Route>
+                    <Route path="/add" element={<CreateBook/>}></Route>
+                </Routes>
+            </BrowserRouter>
+            {/*<Counter/>*/}
+            {/*<Contact/>*/}
+            {/*   <MedicalDeclaration/>*/}
+        </>
 
-      {/*<Counter/>*/}
-     {/*<Contact/>*/}
-     {/*   <MedicalDeclaration/>*/}
-    </>
-   
-  );
+    );
 }
 
 export default App;

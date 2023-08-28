@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import * as bookService from "../../service/BookManagementService"
 import {Link} from "react-router-dom";
-import axios from "axios";
 import {Modal} from "react-bootstrap";
-import {boolean} from "yup";
 
 export function ListBook() {
 
@@ -18,10 +16,9 @@ export function ListBook() {
         const result = await bookService.getAll();
         setBooks((prev) => result)
     }
-    let flag=false;
+    let flag = false;
     const deleteBook = async (id) => {
-        // setOpen(true)
-        await axios.delete(`http://localhost:8080/books/${id}`);
+        await bookService.deleteBook(id);
         getAll();
         await alert("Xoá thành công ");
         setOpen(false);
@@ -73,7 +70,7 @@ export function ListBook() {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>Bạn có muốn xóa sách  {object.title}</p>
+                    <p>Bạn có muốn xóa sách {object.title}</p>
                     <button onClick={() => deleteBook(object.id)}>
                         Xóa
                     </button>
