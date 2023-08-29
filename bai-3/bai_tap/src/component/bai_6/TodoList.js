@@ -13,7 +13,7 @@ export function TodoList() {
     const result = todoService.getAll();
     const getAll = async () => {
         const result = await todoService.getAll().data;
-        setTodos((prev) => result);
+        setTodos( result);
     }
     return (
         <>

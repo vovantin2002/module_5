@@ -23,5 +23,14 @@
       "phoneNumber": "0778298952",
       "citizenId": "3467878655433"
     }
+  ],
+  "contract": [
+    {
+      "id": 1,
+      "startDate": "29/08/2023",
+      "endDate": "29/12/2023",
+      "deposit": "1.000.000",
+      "totalPayment": "1.000.000.000"
+    }
   ]
 }
