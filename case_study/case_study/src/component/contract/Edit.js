@@ -1,24 +1,31 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
-function Create() {
+function Edit() {
     const navigate=useNavigate();
+    const {id} = useParams();
+    const [contracts, setContracts] = useState([])
+    const getContract = async () => {
+        const result = await axios.get(`http://localhost:8080/contract/${id}`)
+        setContracts(result.data);
+    }
+    useEffect(() => {
+        getContract()
+    }, [])
     const add = async (contract) => {
-        await axios.post('http://localhost:8080/contract', contract);
-        await alert("Them moi thanh cong")
-        navigate("/contract")
+        await axios.put(`http://localhost:8080/contract/${id}`, contract);
+        await alert("Sua thanh cong")
+        navigate("/contract");
     }
     return (
         <>
             <Formik
+                enableReinitialize={true}
                 initialValues={{
-                    startDate: '',
-                    endDate: '',
-                    deposit: '',
-                    totalPayment: ''
+                    ...contracts,
                 }
                 }
                 validationSchema={
@@ -54,7 +61,7 @@ function Create() {
                                                         data-target="#date1"
                                                         data-toggle="datetimepicker"
                                                     />
-                                                    <ErrorMessage component='span' name="startDate" className="form-error"/>
+                                                    <ErrorMessage name="startDate" className="form-error"/>
                                                 </div>
                                             </div>
                                             <div className="col-md-3">
@@ -67,7 +74,7 @@ function Create() {
                                                     data-target="#date2"
                                                     data-toggle="datetimepicker"
                                                 />
-                                                    <ErrorMessage component='span' name="endDate" className="form-error"/>
+                                                    <ErrorMessage name="endDate" className="form-error"/>
                                                 </div>
                                             </div>
                                             <div className="col-md-3">
@@ -80,7 +87,7 @@ function Create() {
                                                         data-target="#date2"
                                                         data-toggle="datetimepicker"
                                                     />
-                                                    <ErrorMessage component='span' name="deposit" className="form-error"/>
+                                                    <ErrorMessage name="deposit" className="form-error"/>
                                                 </div>
                                             </div>
                                             <br/>
@@ -94,7 +101,7 @@ function Create() {
                                                         data-target="#date2"
                                                         data-toggle="datetimepicker"
                                                     />
-                                                    <ErrorMessage component='span' name="totalPayment" className="form-error"/>
+                                                    <ErrorMessage name="totalPayment" className="form-error"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,4 +121,4 @@ function Create() {
     );
 }
 
-export default Create;
+export default Edit;

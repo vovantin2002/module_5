@@ -16,23 +16,23 @@ import UserList from "./component/bai_7/UserList";
 function App() {
     return (
         <>
-            {/*<BrowserRouter>*/}
-            {/*    <Routes>*/}
-            {/*        <Route path="/books" element={<ListBook/>}></Route>*/}
-            {/*        <Route path="/books/:id" element={<EditBook/>}></Route>*/}
-            {/*        <Route path="/add" element={<CreateBook/>}></Route>*/}
-            {/*    </Routes>*/}
-            {/*</BrowserRouter>*/}
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/books" element={<ListBook/>}></Route>
+                    <Route path="/books/:id" element={<EditBook/>}></Route>
+                    <Route path="/add" element={<CreateBook/>}></Route>
+                </Routes>
+            </BrowserRouter>
             {/*<Counter/>*/}
             {/*<Contact/>*/}
             {/*   <MedicalDeclaration/>*/}
-            <div className="container">
-                <div  style={{marginTop: 40}}>
-                    <div>
-                        <UserList />
-                    </div>
-                </div>
-            </div>
+            {/*<div className="container">*/}
+            {/*    <div  style={{marginTop: 40}}>*/}
+            {/*        <div>*/}
+            {/*            <UserList />*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </>
 
     );

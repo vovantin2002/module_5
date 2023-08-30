@@ -6,22 +6,116 @@
       "cost": 999,
       "capacity": 3,
       "image": "https://tse1.mm.bing.net/th?id=OIP.Ud7PSPO-dToGSwalJApKSAAAAA&pid=Api&P=0&h=180",
-      "type": {
+      "rentalType": "theo ngay",
+      "typeService": {
         "id": 1,
-        "name": "“Room”"
+        "name": "Room"
       },
       "id": 10
+    },
+    {
+      "name": "Room - On Clouds Nine",
+      "area": 39,
+      "cost": 999,
+      "capacity": 3,
+      "image": "https://tse1.mm.bing.net/th?id=OIP.Ud7PSPO-dToGSwalJApKSAAAAA&pid=Api&P=0&h=180",
+      "rentalType": "theo ngay",
+      "typeService": {
+        "id": 1,
+        "name": "Room"
+      },
+      "id": 2
+    },
+    {
+      "name": "Room - On Clouds Nine",
+      "area": 39,
+      "cost": 999,
+      "capacity": 3,
+      "image": "https://tse1.mm.bing.net/th?id=OIP.Ud7PSPO-dToGSwalJApKSAAAAA&pid=Api&P=0&h=180",
+      "rentalType": "theo ngay",
+      "typeService": {
+        "id": 1,
+        "name": "Room"
+      },
+      "id": 1
+    },
+    {
+      "name": "vo vvvv van tin",
+      "area": "24",
+      "cost": "23",
+      "capacity": "32",
+      "image": "https://tse2.mm.bing.net/th?id=OIP.pYYmQQWXzDRcMa7M6LsKjwHaEK&pid=Api&P=0&h=180",
+      "rentalType": "rfgfd",
+      "typeService": {
+        "id": 3,
+        "name": "House"
+      },
+      "id": 12
+    },
+    {
+      "name": "vo vvvv van tin",
+      "area": "24",
+      "cost": "23",
+      "capacity": "32",
+      "image": "https://tse2.mm.bing.net/th?id=OIP.pYYmQQWXzDRcMa7M6LsKjwHaEK&pid=Api&P=0&h=180",
+      "rentalType": "rfgfd",
+      "typeService": {
+        "id": 3,
+        "name": "House"
+      },
+      "id": 13
+    }
+  ],
+  "typeService": [
+    {
+      "id": 1,
+      "name": "Room"
+    },
+    {
+      "id": 2,
+      "name": "Villa"
+    },
+    {
+      "id": 3,
+      "name": "House"
     }
   ],
   "customer": [
     {
-      "id": 1,
-      "name": "Vo Van Tin",
-      "gender": "nam",
-      "email": "vovantin@gmail.com",
+      "name": "Van Tin",
+      "gender": "Nam",
+      "email": "vovantin9502@gmail.com",
       "birthday": "09/05/2002",
-      "phoneNumber": "0778298952",
-      "citizenId": "3467878655433"
+      "phoneNumber": "0908298952",
+      "citizenId": "666666666",
+      "address": "Hoa Vang",
+      "typeCustomer": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "id": 3
+    }
+  ],
+  "typeCustomer": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
     }
   ],
   "contract": [
@@ -31,6 +125,13 @@
       "endDate": "29/12/2023",
       "deposit": "1.000.000",
       "totalPayment": "1.000.000.000"
+    },
+    {
+      "startDate": "2023-08-09",
+      "endDate": "2023-08-02",
+      "deposit": "234",
+      "totalPayment": "3454",
+      "id": 2
     }
   ]
 }

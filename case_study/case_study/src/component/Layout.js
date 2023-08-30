@@ -216,7 +216,6 @@ class Layout extends Component {
                         <i className="bi bi-arrow-up"/>
                     </a>
                 </div>
-
             </>
         )
     }
