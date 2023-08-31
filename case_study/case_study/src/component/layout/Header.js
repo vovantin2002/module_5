@@ -64,8 +64,14 @@ export default function Header() {
                                     <a href="index.html" className="nav-item nav-link active">
                                         Home
                                     </a>
-                                    <a href="/service" className="nav-item nav-link">
-                                        Services
+                                    <a href="/room" className="nav-item nav-link">
+                                        Room Services
+                                    </a>
+                                    <a href="/house" className="nav-item nav-link">
+                                        House Services
+                                    </a>
+                                    <a href="/villa" className="nav-item nav-link">
+                                        Villa Services
                                     </a>
                                     <a href="facility.html" className="nav-item nav-link">
                                         Facility

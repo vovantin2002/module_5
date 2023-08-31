@@ -2,24 +2,24 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {Link} from "react-router-dom";
 
-function List() {
+function ListRoom() {
     const [services, setServices] = useState([]);
     const [service, setService] = useState({});
     const getAll = async () => {
-        const result = await axios.get('http://localhost:8080/service');
+        const result = await axios.get('http://localhost:8080/roomService');
         setServices( result.data)
     }
     useEffect(() => {
         getAll();
     }, [])
     const deleteCustomer = async (id) => {
-        await axios.delete(`http://localhost:8080/service/${id}`)
+        await axios.delete(`http://localhost:8080/roomService/${id}`)
         await alert("Xoa thanh cong")
         getAll();
     }
     return (
         <>
-            <h1><Link to={"/service/create"}>Create</Link></h1>
+            <h1><Link to={"/room/create"}>Create</Link></h1>
             <div className="row">
                 {services.map((service) => (
                     <div className="col-md-3" key={service.id}>
@@ -31,7 +31,7 @@ function List() {
                                 <p className="card-text">Cost: {service.cost}</p>
                                 <p className="card-text">Capacity: {service.capacity}</p>
                                 <button className="btn btn-primary btn-sm">
-                                    <Link to={`/service/${service.id}`} style={{ color: 'white' }}>
+                                    <Link to={`/room/${service.id}`} style={{ color: 'white' }}>
                                         Edit
                                     </Link>
                                 </button>
@@ -92,4 +92,4 @@ function List() {
     );
 }
 
-export default List;
+export default ListRoom;

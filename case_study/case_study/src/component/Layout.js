@@ -1,6 +1,6 @@
 import {Component} from "react";
-import List from "./service/List";
-import Create from "./service/Create";
+import ListRoom from "./service/room/ListRoom";
+import CreateHouse from "./service/house/CreateHouse";
 
 class Layout extends Component {
     constructor() {

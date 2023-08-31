@@ -1,83 +1,86 @@
 {
-  "service": [
+  "roomService": [
     {
-      "name": "Room - On Clouds Nine",
+      "name": "Room On Clouds Nine",
       "area": 39,
       "cost": 999,
       "capacity": 3,
       "image": "https://tse1.mm.bing.net/th?id=OIP.Ud7PSPO-dToGSwalJApKSAAAAA&pid=Api&P=0&h=180",
-      "rentalType": "theo ngay",
-      "typeService": {
-        "id": 1,
-        "name": "Room"
+      "freeServiceIncluded": "Giat do",
+      "rentalType": {
+        "id": 2,
+        "name": "Thang"
       },
       "id": 10
-    },
+    }
+  ],
+  "villaService": [
     {
       "name": "Room - On Clouds Nine",
       "area": 39,
       "cost": 999,
       "capacity": 3,
       "image": "https://tse1.mm.bing.net/th?id=OIP.Ud7PSPO-dToGSwalJApKSAAAAA&pid=Api&P=0&h=180",
-      "rentalType": "theo ngay",
-      "typeService": {
+      "roomStandards": "Vip",
+      "otherAmenities": "Ok",
+      "poolArea": 30,
+      "numberOfFloors": 5,
+      "rentalType": {
         "id": 1,
-        "name": "Room"
+        "name": "Nam"
       },
       "id": 2
-    },
+    }
+  ],
+  "houseService": [
     {
       "name": "Room - On Clouds Nine",
       "area": 39,
       "cost": 999,
       "capacity": 3,
       "image": "https://tse1.mm.bing.net/th?id=OIP.Ud7PSPO-dToGSwalJApKSAAAAA&pid=Api&P=0&h=180",
-      "rentalType": "theo ngay",
-      "typeService": {
+      "roomStandards": "Vip",
+      "otherAmenities": "Ok",
+      "numberOfFloors": 5,
+      "rentalType": {
         "id": 1,
-        "name": "Room"
+        "name": "Nam"
       },
       "id": 1
     },
     {
-      "name": "vo vvvv van tin",
-      "area": "24",
-      "cost": "23",
-      "capacity": "32",
+      "name": "Phuoc Taiaaa",
+      "area": "32",
+      "cost": "12",
+      "capacity": "3",
       "image": "https://tse2.mm.bing.net/th?id=OIP.pYYmQQWXzDRcMa7M6LsKjwHaEK&pid=Api&P=0&h=180",
-      "rentalType": "rfgfd",
-      "typeService": {
-        "id": 3,
-        "name": "House"
+      "roomStandards": "23",
+      "otherAmenities": "23",
+      "numberOfFloors": 23,
+      "rentalType": {
+        "id": 2,
+        "name": "Thang"
       },
-      "id": 12
-    },
-    {
-      "name": "vo vvvv van tin",
-      "area": "24",
-      "cost": "23",
-      "capacity": "32",
-      "image": "https://tse2.mm.bing.net/th?id=OIP.pYYmQQWXzDRcMa7M6LsKjwHaEK&pid=Api&P=0&h=180",
-      "rentalType": "rfgfd",
-      "typeService": {
-        "id": 3,
-        "name": "House"
-      },
-      "id": 13
+      "freeServiceIncluded": "23",
+      "id": 3
     }
   ],
-  "typeService": [
+  "rentalType": [
     {
       "id": 1,
-      "name": "Room"
+      "name": "Nam"
     },
     {
       "id": 2,
-      "name": "Villa"
+      "name": "Thang"
     },
     {
       "id": 3,
-      "name": "House"
+      "name": "Ngay"
+    },
+    {
+      "id": 4,
+      "name": "Gio"
     }
   ],
   "customer": [
