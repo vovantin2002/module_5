@@ -4,21 +4,21 @@ import * as Yup from 'yup';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
-function Create() {
-    const navigate=useNavigate();
-    const [typeServices, setTypeService] = useState([]);
-    const getTypeService = async () => {
-        const result = await axios.get("http://localhost:8080/typeService");
-        await setTypeService(result.data);
+function CreateVilla() {
+    const navigate = useNavigate();
+    const [rentalType, setRentalType] = useState([]);
+    const getRentalType = async () => {
+        const result = await axios.get("http://localhost:8080/rentalType");
+        await setRentalType(result.data);
     }
     useEffect(() => {
-        getTypeService()
+        getRentalType()
     }, [])
     const add = async (service) => {
-        const service1 = {...service, typeService: JSON.parse(service.typeService),}
-        await axios.post("http://localhost:8080/service", service1);
+        const service1 = {...service, rentalType: JSON.parse(service.rentalType),}
+        await axios.post("http://localhost:8080/villaService", service1);
         alert("Them moi thanh cong")
-        navigate("/service")
+        navigate("/villa")
     }
     return (
         <>
@@ -29,8 +29,11 @@ function Create() {
                     cost: "",
                     capacity: "",
                     image: "",
-                    rentalType: "",
-                    typeService: ""
+                    roomStandards: "",
+                    otherAmenities: "",
+                    poolArea: "",
+                    numberOfFloors: "",
+                    rentalType: ""
                 }
                 }
                 validationSchema={
@@ -42,7 +45,12 @@ function Create() {
                         cost: Yup.string().required("Can't be left blank"),
                         capacity: Yup.string().required("Can't be left blank"),
                         image: Yup.string().required("Can't be left blank"),
-                        rentalType: Yup.string().required("Can't be left blank"),
+                        roomStandards: Yup.string().required("Can't be left blank"),
+                        poolArea: Yup.number().required("Can't be left blank")
+                            .min(1, "Area must be a positive number"),
+                        otherAmenities: Yup.string().required("Can't be left blank"),
+                        numberOfFloors: Yup.number().required("Can't be left blank")
+                            .min(1, "Floor number must be positive")
                     })
                 }
                 onSubmit={(values) => {
@@ -109,20 +117,64 @@ function Create() {
                                             <div className="col-md-3">
                                                 <div className="date" id="date2" data-target-input="nearest">
                                                     <Field
-                                                        name="rentalType" type="text"
+                                                        name="freeServiceIncluded" type="text"
                                                         className="form-control datetimepicker-input"
-                                                        placeholder="Rental Type "
+                                                        placeholder="Free Service Included "
                                                         data-target="#date2" data-toggle="datetimepicker"/>
-                                                    <ErrorMessage component='span' name="rentalType"
+                                                    <ErrorMessage component='span' name="freeServiceIncluded"
+                                                                  className="form-error"/>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <div className="date" id="date2" data-target-input="nearest">
+                                                    <Field
+                                                        name="roomStandards" type="text"
+                                                        className="form-control datetimepicker-input"
+                                                        placeholder="Room Standards "
+                                                        data-target="#date2" data-toggle="datetimepicker"/>
+                                                    <ErrorMessage component='span' name="roomStandards"
+                                                                  className="form-error"/>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <div className="date" id="date2" data-target-input="nearest">
+                                                    <Field
+                                                        name="poolArea" type="number"
+                                                        className="form-control datetimepicker-input"
+                                                        placeholder="Pool Area "
+                                                        data-target="#date2" data-toggle="datetimepicker"/>
+                                                    <ErrorMessage component='span' name="poolArea"
+                                                                  className="form-error"/>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <div className="date" id="date2" data-target-input="nearest">
+                                                    <Field
+                                                        name="otherAmenities" type="text"
+                                                        className="form-control datetimepicker-input"
+                                                        placeholder="Other Amenities "
+                                                        data-target="#date2" data-toggle="datetimepicker"/>
+                                                    <ErrorMessage component='span' name="otherAmenities"
+                                                                  className="form-error"/>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-3">
+                                                <div className="date" id="date2" data-target-input="nearest">
+                                                    <Field
+                                                        name="numberOfFloors" type="number"
+                                                        className="form-control datetimepicker-input"
+                                                        placeholder="Number Of Floors "
+                                                        data-target="#date2" data-toggle="datetimepicker"/>
+                                                    <ErrorMessage component='span' name="numberOfFloors"
                                                                   className="form-error"/>
                                                 </div>
                                             </div>
                                             <div className="col-md-3">
                                                 <div className="date" id="date3" data-target-input="nearest">
-                                                    <Field as="select" name="typeService">
-                                                        <option value="">Type Service</option>
+                                                    <Field as="select" name="rentalType">
+                                                        <option value="">Rental Type</option>
                                                         {
-                                                            typeServices.map((typeService) => {
+                                                            rentalType.map((typeService) => {
                                                                 return (
                                                                     <option key={typeService.id}
                                                                             value={`${JSON.stringify(typeService)}`}
@@ -148,4 +200,4 @@ function Create() {
     );
 }
 
-export default Create;
+export default CreateVilla;

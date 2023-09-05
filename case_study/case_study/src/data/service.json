@@ -49,20 +49,20 @@
       "id": 1
     },
     {
-      "name": "Phuoc Taiaaa",
+      "name": "vo vvvv van tin",
       "area": "32",
       "cost": "12",
       "capacity": "3",
       "image": "https://tse2.mm.bing.net/th?id=OIP.pYYmQQWXzDRcMa7M6LsKjwHaEK&pid=Api&P=0&h=180",
       "roomStandards": "23",
       "otherAmenities": "23",
-      "numberOfFloors": 23,
+      "numberOfFloors": 32,
       "rentalType": {
         "id": 2,
         "name": "Thang"
       },
       "freeServiceIncluded": "23",
-      "id": 3
+      "id": 2
     }
   ],
   "rentalType": [

@@ -31,7 +31,7 @@ function List() {
                                 <p className="card-text">Cost: {service.cost}</p>
                                 <p className="card-text">Capacity: {service.capacity}</p>
                                 <button className="btn btn-primary btn-sm">
-                                    <Link to={`/service/${service.id}`} style={{ color: 'white' }}>
+                                    <Link to={`/house/${service.id}`} style={{ color: 'white' }}>
                                         Edit
                                     </Link>
                                 </button>

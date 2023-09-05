@@ -2,37 +2,40 @@ import React, {useEffect, useState} from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
-function CreateHouse() {
+function EditHouse() {
+    const {id}=useParams();
     const navigate = useNavigate();
     const [rentalType, setRentalType] = useState([]);
+    const [house, setHouse] = useState({});
     const getRentalType = async () => {
         const result = await axios.get("http://localhost:8080/rentalType");
         await setRentalType(result.data);
     }
+    const getHouse = async () => {
+        const result = await axios.get(`http://localhost:8080/houseService/${id}`);
+        await setHouse(result.data);
+        console.log(result.data)
+    }
     useEffect(() => {
         getRentalType()
     }, [])
+    useEffect(() => {
+        getHouse()
+    }, {})
     const add = async (service) => {
         const service1 = {...service, rentalType: JSON.parse(service.rentalType),}
-        await axios.post("http://localhost:8080/houseService", service1);
-        alert("Them moi thanh cong")
+        await axios.put(`http://localhost:8080/houseService/${id}`, service1);
+        alert("Sua thanh cong")
         navigate("/house")
     }
     return (
         <>
             <Formik
+                enableReinitialize={true}
                 initialValues={{
-                    name: "",
-                    area: 0,
-                    cost: "",
-                    capacity: "",
-                    image: "",
-                    roomStandards: "",
-                    otherAmenities: "",
-                    numberOfFloors: 0,
-                    rentalType: ""
+                    ...house, rentalType: JSON.stringify(house?.rentalType),
                 }
                 }
                 validationSchema={
@@ -186,4 +189,4 @@ function CreateHouse() {
     );
 }
 
-export default CreateHouse;
+export default EditHouse;
