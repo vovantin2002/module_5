@@ -6,6 +6,7 @@ import com.example.java.service.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +29,8 @@ public class ProductController {
 
     @GetMapping("")
     @ResponseBody
-    public ResponseEntity display(@PageableDefault(size = 4) Pageable pageable, @RequestParam(value = "name",
+    public ResponseEntity display(@PageableDefault(size = 4, sort = "quantity", direction = Sort.Direction.DESC)
+                                  Pageable pageable, @RequestParam(value = "name",
             defaultValue = "") String name, @RequestParam(value = "productType", defaultValue = "") String productType) {
         return new ResponseEntity<>(productService.search(name, productType, pageable), HttpStatus.OK);
     }

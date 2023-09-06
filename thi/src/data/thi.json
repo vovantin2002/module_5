@@ -1,0 +1,58 @@
+{
+  "sanPham": [
+    {
+      "id": 1,
+      "ten": "ao so mi",
+      "ngayNhap": "19/08/2023",
+      "soLuong": 456456,
+      "loai": {
+        "id": 1,
+        "name": "áo"
+      }
+    },
+    {
+      "id": 2,
+      "ten": "quan auu",
+      "ngayNhap": "19/08/2023",
+      "soLuong": 30,
+      "loai": {
+        "id": 2,
+        "name": "quần "
+      }
+    },
+    {
+      "id": 3,
+      "ten": "quan auu",
+      "ngayNhap": "19/08/2023",
+      "soLuong": 30,
+      "loai": {
+        "id": 2,
+        "name": "quần "
+      }
+    },
+    {
+      "id": 4,
+      "ten": "quan jean",
+      "ngayNhap": "12/01/2023",
+      "soLuong": 56,
+      "loai": {
+        "id": 3,
+        "name": "chanh "
+      }
+    }
+  ],
+  "loai": [
+    {
+      "id": 1,
+      "name": "áo"
+    },
+    {
+      "id": 2,
+      "name": "quần "
+    },
+    {
+      "id": 3,
+      "name": "chanh "
+    }
+  ]
+}
